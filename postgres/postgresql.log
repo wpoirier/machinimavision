@@ -1,0 +1,31 @@
+2017-11-08 10:59:48.203 EST [1259] LOG:  listening on IPv6 address "::1", port 5432
+2017-11-08 10:59:48.203 EST [1259] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-11-08 10:59:48.204 EST [1259] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-11-08 10:59:48.215 EST [1260] LOG:  database system was shut down at 2017-11-08 10:59:48 EST
+2017-11-08 10:59:48.221 EST [1259] LOG:  database system is ready to accept connections
+2017-11-08 11:00:20.066 EST [1276] LOG:  invalid length of startup packet
+2017-11-08 11:00:20.067 EST [1277] LOG:  invalid length of startup packet
+2017-11-08 11:00:20.069 EST [1278] LOG:  invalid length of startup packet
+2017-11-08 11:00:20.070 EST [1279] LOG:  invalid length of startup packet
+2017-11-08 11:00:20.071 EST [1280] LOG:  invalid length of startup packet
+2017-11-08 11:00:20.072 EST [1281] LOG:  invalid length of startup packet
+2017-11-08 11:00:20.074 EST [1282] LOG:  invalid length of startup packet
+2017-11-08 11:00:20.075 EST [1283] LOG:  invalid length of startup packet
+2017-11-08 11:00:20.076 EST [1284] LOG:  invalid length of startup packet
+2017-11-08 11:00:20.077 EST [1285] LOG:  invalid length of startup packet
+2017-11-08 11:00:22.757 EST [1286] LOG:  invalid length of startup packet
+2017-11-08 11:00:22.760 EST [1287] LOG:  invalid length of startup packet
+2017-11-08 11:00:22.762 EST [1288] LOG:  invalid length of startup packet
+2017-11-08 11:00:22.764 EST [1289] LOG:  invalid length of startup packet
+2017-11-08 11:00:22.765 EST [1290] LOG:  invalid length of startup packet
+2017-11-08 11:00:22.767 EST [1291] LOG:  invalid length of startup packet
+2017-11-08 11:00:22.768 EST [1292] LOG:  invalid length of startup packet
+2017-11-08 11:00:22.770 EST [1293] LOG:  invalid length of startup packet
+2017-11-08 11:00:22.771 EST [1294] LOG:  invalid length of startup packet
+2017-11-08 11:00:22.773 EST [1295] LOG:  invalid length of startup packet
+2017-11-08 11:00:49.360 EST [1259] LOG:  received fast shutdown request
+2017-11-08 11:00:49.362 EST [1259] LOG:  aborting any active transactions
+2017-11-08 11:00:49.362 EST [1363] FATAL:  terminating connection due to administrator command
+2017-11-08 11:00:49.363 EST [1259] LOG:  worker process: logical replication launcher (PID 1266) exited with exit code 1
+2017-11-08 11:00:49.363 EST [1261] LOG:  shutting down
+2017-11-08 11:00:49.368 EST [1259] LOG:  database system is shut down

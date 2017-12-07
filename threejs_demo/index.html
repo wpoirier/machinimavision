@@ -1,0 +1,299 @@
+  <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>MachinimaVision ThreeJS Rough Prototype</title>
+		<style>
+			body { 
+				margin: 0; 
+			}
+			canvas { 
+				width: 100%; 
+				height: 100% 
+			}
+			#info {
+				position: absolute;
+				top: 10px;
+				width: 100%;
+				text-align: center;
+				z-index: 100;
+				display:block;
+				color: #00A0FF;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="../three/examples/js/three.js"></script>
+		<script src="../three/examples/js/loaders/loadersupport.js"></script>
+		<script src="../three/examples/js/loaders/OBJLoader2.js"></script>
+		<script src="../three/examples/js/controls/OrbitControls.js"></script>
+		<script src="../three/examples/js/vr/WebVR.js"></script>
+
+		<script>
+		
+			//set up camera and scene
+			var scene = new THREE.Scene();
+			camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+			camera.position.y = 2;
+			camera.position.z = 5;
+
+			//set up renderer
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+			
+			//set up webvr
+			renderer.vr.enabled = true;
+			window.addEventListener( 'resize', onWindowResize, false );
+			window.addEventListener( 'vrdisplaypointerrestricted', onPointerRestricted, false );
+			window.addEventListener( 'vrdisplaypointerunrestricted', onPointerUnrestricted, false );
+			document.body.appendChild( WEBVR.createButton( renderer ) );
+
+			// instantiate the loader
+			var loader = new THREE.OBJLoader2();			
+			var callbackOnLoad = function ( event ) {
+				scene.add( event.detail.loaderRootNode );
+			};
+
+			// load the stage from provided URL synchronously
+			loader.load( 'stage_basic.obj', callbackOnLoad, null, null, null, false );
+
+			//loader.load( '../prototype_assets/ico_man.obj', callbackOnLoad, null, null, null, false );
+
+			//set up player
+			var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+			var material = new THREE.MeshLambertMaterial( { color: 0x00ff00 } );
+			var player = new THREE.Mesh( geometry, material );			
+			scene.add( player );
+			player.position.y = 1;
+
+			
+			//orbit controls
+			var controls = new THREE.OrbitControls(camera);
+			controls.update();
+
+			//input related variables
+			var leftheld = false;
+			var rightheld = false;
+			var upheld = false;
+			var downheld = false;
+
+			var leftheld_p2 = false;
+			var rightheld_p2 = false;
+			var upheld_p2 = false;
+			var downheld_p2 = false;
+
+			var xSpeed = 0.05;
+			var zSpeed = 0.05;
+			var ySpeed = 0.05;
+
+			var keyboardList = [[]];
+			var savedInputsArray = [];
+			var saved_lists_index = 0;
+
+			//set up the lighting
+			var light = new THREE.PointLight( 0xff0000, 1, 1000 );
+			light.position.set( player.position.x, player.position.x, player.position.x );
+			scene.add( light );
+			// White directional light at half intensity shining from the top.
+			var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+			scene.add( directionalLight );
+			//light.target = player;
+
+			var spotLight = new THREE.SpotLight( 0xffffff );
+			spotLight.position.set( 10, 10, 10 );
+			scene.add( spotLight );
+
+			var spotLightHelper = new THREE.SpotLightHelper( spotLight );
+			scene.add( spotLightHelper );
+
+						//Let's test having a timeline
+			const STAGING = 0;
+			const RECORD = 1;
+			const PLAYBACK = 2;
+
+			var mode = STAGING;
+
+			var time = 0;
+			var playback_index = 0; //index for keyboard recording playback
+			setInterval(function(){ 
+				//console.log(time);
+				//if record mode, start the timer and record inputs for wasd
+				//if playback mode, set the [key]held variables to true and false based on time. (note, make sure initial object position is set at start of playback)
+				//if staging mode, don't do anything
+				if (mode == RECORD){
+					time++;
+					//console.log("time: " + time);
+				}
+				if (mode == PLAYBACK){
+					time++;
+					//if (keyboardList[index][1] == eval();){
+					//}
+				}
+			}, 50);	
+
+			//animation and movement for the player
+			function animate() {
+				requestAnimationFrame( animate );
+				controls.update();
+				renderer.render( scene, camera );
+
+				//if playback mode, run through the saved input array to set the key held vars
+				if (mode == PLAYBACK){
+					/*
+					if (savedInputsArray[0][playback_index][0] == time){ //note: sIarr [0] is just temporary, as saved playbacks will be selectable from a menu eventually.
+						for (i = 1; i < savedInputsArray[0][playback_index].length; i++){
+							eval(savedInputsArray[0][playback_index][i]); 
+						}
+						playback_index++;
+					}*/
+					if (savedInputsArray[0][playback_index][0] == time){
+						eval(savedInputsArray[0][playback_index][1]);
+						playback_index++;
+					}
+				}
+
+				if (leftheld){
+					//player.position.x+=xSpeed;
+					player.rotation.y -= 0.05;
+
+				}
+				if (rightheld){
+					//player.position.x-=xSpeed;
+					player.rotation.y += 0.05;
+				}
+				if (upheld){
+					//player.position.z+=zSpeed;
+					player.position.z -= Math.cos(player.rotation.y) * zSpeed;
+					player.position.x -= Math.sin(player.rotation.y) * xSpeed;
+				}
+				if (downheld){
+					//player.position.z-=zSpeed;
+					player.position.z += Math.cos(player.rotation.y) * zSpeed;
+					player.position.x += Math.sin(player.rotation.y) * xSpeed;
+				}
+			}
+			animate();
+
+			function recordKey(position,data){
+				if (mode == RECORD){
+			    		//keyboardList[playback_index] = time;
+			    		//keyboardList[playback_index][position] = data;
+			    		keyboardList.push([time,data]);
+			    		//playback_index++;
+			    	}
+			    	console.log(keyboardList);
+			 	}
+
+			document.addEventListener("keydown", onDocumentKeyDown, false);
+			function onDocumentKeyDown(event) {
+			    var keyCode = event.which;
+			    if (keyCode == 83) { //s
+			    	if (!downheld){
+			    		console.log("downheld Key pressed");
+			    		recordKey(0,"downheld = true");
+			    	}
+			        downheld = true;
+			    } else if (keyCode == 87) { //w
+			    	if (!upheld){
+			    		console.log("upheld Key Pressed");
+			    		recordKey(1,"upheld = true");
+			    	}
+			        upheld = true;
+			    } else if (keyCode == 65) { //a 
+			    	if (!rightheld){
+			    		console.log("rightheld Key Pressed");
+			    		recordKey(2,"rightheld = true");
+			    	}
+			        rightheld = true
+			    } else if (keyCode == 68) { //d
+			    	if (!leftheld){
+			    		console.log("leftheld Key Pressed");
+			    		recordKey(3,"leftheld = true");
+			    	}
+			        leftheld = true;
+			    } else if (keyCode == 32) { //key == space
+			        player.position.set(0, 1, 0);
+			        player.rotation.y = 0;
+			        time = 0;
+			        playback_index = 1;
+			        if (mode == RECORD){
+			        	savedInputsArray[saved_lists_index] = keyboardList.slice(0);
+			        	saved_lists_index++;
+			        	keyboardList = [];
+				        mode = STAGING;
+				        document.getElementById('mode').innerHTML = " Staging";
+				    }
+				    else if (mode == STAGING){
+				    	mode = RECORD;
+				    	document.getElementById('mode').innerHTML = " Recording";
+					}
+			    }
+			    else if (keyCode == 80){ //key == p
+			    	player.position.set(0, 1, 0);
+			    	time = -1;
+			    	mode = PLAYBACK;
+			    	document.getElementById('mode').innerHTML = " Playback";
+			    }
+			};
+			document.addEventListener("keyup", onDocumentKeyUp, false);
+			function onDocumentKeyUp(event){
+				var keyCode = event.which;
+				if (keyCode == 83) {
+					if (downheld){
+						console.log("downheld key released");
+						recordKey(0,"downheld = false");
+					}
+			        downheld = false;
+			    } else if (keyCode == 87) {
+					if (upheld){
+						console.log("upheld key released");
+						recordKey(1,"upheld = false");
+					}
+			        upheld = false;
+			    } else if (keyCode == 65) {
+					if (rightheld){
+						console.log("rightheld key released");
+						recordKey(2,"rightheld = false");
+					}
+			        rightheld = false
+			    } else if (keyCode == 68) {
+					if (leftheld){
+						console.log("leftheld key released");
+						recordKey(3,"leftheld = false"); 
+					}			    	
+			        leftheld = false;
+			    }
+			}
+
+			function onPointerRestricted() {
+				var pointerLockElement = renderer.domElement;
+				if ( pointerLockElement && typeof(pointerLockElement.requestPointerLock) === 'function' ) {
+					pointerLockElement.requestPointerLock();
+				}
+			}
+			function onPointerUnrestricted() {
+				var currentPointerLockElement = document.pointerLockElement;
+				var expectedPointerLockElement = renderer.domElement;
+				if ( currentPointerLockElement && currentPointerLockElement === expectedPointerLockElement && typeof(document.exitPointerLock) === 'function' ) {
+					document.exitPointerLock();
+				}
+			}
+			function onWindowResize() {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+			}
+
+			/* Start a simple ruby http server with ruby:
+			ruby -r webrick -e "s = WEBrick::HTTPServer.new(:Port => 8000, :DocumentRoot => Dir.pwd); trap('INT') { s.shutdown }; s.start" 
+			*/
+		</script>
+
+		<div id="info">
+			Info for stage director goes here 
+			<br> 
+			<b>Mode:</b><div id="mode">Staging</div>
+		</div>
+	</body>
+</html>
