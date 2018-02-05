@@ -1,9 +1,11 @@
-This project uses ThreeJS, which is licensed under the MIT license.
+This project uses ThreeJS and ExpressJS, which are licensed under the MIT license. This project also uses a Redis database, which is licensed under the BSD license.
 
-To run this project properly, an http server must be run. I currently use ruby webrick as documented on the ThreeJS website. Run the following from the terminal to start a web server at localhost:8000
+MachinimaVision is a collaborative cloud project designed for multiple users to create virtual reality compatible movies together.
 
-ruby -r webrick -e "s = WEBrick::HTTPServer.new(:Port => 8000, :DocumentRoot => Dir.pwd); trap('INT') { s.shutdown }; s.start"
+To run this project properly, a web server, node server, and Redis server all must be running. If you have not installed Redis or NodeJS, navigate to https://redis.io and https://nodejs.org/ and follow the installation instructions. Make sure you run 'npm install' in the machinimavision folder to install all the required components. If you run into problems, try installing redis, body parser, and express JS manually.
 
-Navigate to localhost:8000. For the current prototype, WASD will control the cube. Press space to begin recording inputs, and then press space again to finish. Press 'P' to initiate playback, and space again to replay the cube's movement.
+To run Redis, cd in your terminal to where you built your binary and run './redis-server'. To run the back-end server, cd to the Machinimavision home directory and run 'node server'. To run the front-end components, start an http server on port 8000 in the Machinimavision home directory. I personally use 'http-server . -p 8000' but any generic http server should theoretically work. 
 
-In the near future, a backend component will be included in this repository that sets up a database to create users and allow them the ability to save and sharetheir recordings. It will also allow users to upload their own 3D models, animations, and terrain. Future revisions will also include the ability to manipulate record camera and lighting changes.
+Navigate to http://localhost:8000. The user and password system is not yet complete, so skip to the next page. Create a new movie using the 'Create Movie' page, and then navigate to that movie on the Browse page. It will have a unique id in the url query. For the current prototype, WASD will control the character. Follow the on-screen buttons to control the recording. Or for hotkeys, press space to begin recording inputs, and then press space again to finish. Press 'P' to initiate playback, and space again to replay the cube's movement. When you stop recording, your inputs will be saved and sent to the back-end server as a JSON encoded string. The movie can then be played back.
+
+In the near future, the backend component will also allow users to upload their own 3D models, animations, and terrain. Future revisions will also include the ability to manipulate record camera and lighting changes. Most importantly of all, it will allow multiple users to control and edit a movie simutaneously and allow the recording of voice chat.

@@ -1,8 +1,7 @@
 //const nodeserver = 'http://localhost:3000' // video and user database server
 const mid = getUrlVars()["mid"]; // Movie ID. Used to identity what movie in the database we're working with.
 
-//get querry string variables
-//**I think we will just start with a url param like vid (video id)
+//grab the movie id from the querry string
 function getUrlVars()
 {
     var vars = [], hash;
@@ -15,17 +14,17 @@ function getUrlVars()
     }
     return vars;
 }
-//get the Url Params
 console.log(getUrlVars());
 
-//get from database server the movie id
-
-
-//load the movie for playback
-
-
-//parse json and load the playback data into the playback array
-
+//get the movie for playback from database using the movie id (mid)
+$.get( nodeserver, mid)
+	.done (function( movie_data ) {
+		//parse json and load the playback data into the playback array
+		if (movie_data !== 'new'){
+			console.log(movie_data);
+			savedInputsArray = JSON.parse(movie_data);
+		}
+});
 
 //set up camera and scene
 var scene = new THREE.Scene();
@@ -111,16 +110,17 @@ scene.add( spotLight );
 var spotLightHelper = new THREE.SpotLightHelper( spotLight );
 scene.add( spotLightHelper );
 
-//Let's test having a timeline
+//
 const STAGING = 0;
 const RECORD = 1;
 const PLAYBACK = 2;
-
 var mode = STAGING;
 
+//timeline related variables
 var time = 0;
 var playback_index = 0; //index for keyboard recording playback
 var saved_inputs_length;
+var time_rate = 100;
 
 //timeline interval function
 setInterval(function(){ 
@@ -136,7 +136,7 @@ setInterval(function(){
 		//we may do other functionality here later, thus there are two if statements 
 	}
 	//console.log("time: " + time)
-}, 100);	
+}, time_rate);
 
 //animation and movement for the player
 function animate() {
@@ -269,18 +269,23 @@ function setStagingRecordMode(){
     if (mode == RECORD){
     	console.log("saved scene_index: " + scene_index);
     	savedInputsArray[scene_index] = keyboardInputList.slice(0);
-
+    	//var mdata = JSON.stringify(keyboardInputList);
+    	var mdata = {
+    		"movie_id" : mid,
+    		"saved_inputs_array" : savedInputsArray
+    	}
+    	mdata = JSON.stringify ( mdata );
+    	console.log(mdata);
     	//POST saved inputs to database server
     	$.ajax({
   			type: "POST",
   			url: nodeserver,
-			data: JSON.stringify(keyboardInputList),
+			data: mdata,
 			success: function(){alert('inputs saved')},
 			contentType: "application/json",
 			dataType: 'json'
 		});
 
-		console.log('here');
     	keyboardInputList = [];
         mode = STAGING;
         document.getElementById('mode').innerHTML = "Mode: Staging";

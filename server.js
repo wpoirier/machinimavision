@@ -7,29 +7,14 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const fs = require('fs');
-//const pgp = require('pg-promise')(/*options*/);
-const movieserver = 'localhost:8000'
-const Sequelize = require('sequelize');
+const movieserver = 'http://localhost:8000'
+const redis = require('redis')
+const client = redis.createClient()
+var mid; //movie id
 
-const sequelize = new Sequelize('postgres://user:pass@localhost:5432/machinimavisiondb');
-console.log(sequelize);
-
-/*
-const cn = {
-    host: 'localhost', // server name or IP address;
-    port: 5432,
-    database: 'machinimaTestDB',
-    user: 'william',
-    password: 'MasterSwitch'
-};
-
-// alternative:
-// const cn = 'postgres://username:password@host:port/database';
-const db = pgp(cn); // database instance;
-console.log("db: ", db);
-*/
-
-app.use(express.static(__dirname + '/public'));
+client.on('error', function (err) {
+  console.log('Error ' + err)
+})
 
 //allow Cross-Origin Resource Sharing
 app.use(function(req, res, next) {
@@ -41,71 +26,46 @@ app.use(function(req, res, next) {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
-//*********Routes*************
-
 //==GETS==
+app.get('/browse',function(req,res){
+  console.log("Get the browsing page data");
+  var len = client.llen('movie id list', function (err,reply){
+    console.log(reply);
+    res.send(reply.toString());
+    res.end("end of browse");
+  });
+});
 
 app.get('/',function(req,res){
-  console.log('home');
-  res.sendFile(__dirname + "/index.html");
+  console.log(req.url);
+  var movie_id = req.url.split('/?')[1]
+  console.log(movie_id);
+  var movie_data = client.lindex('movie id list', movie_id, function (err,reply){
+    console.log(reply);
+    res.send(reply);
+  })
 });
-
-app.get('/style.css',function (req, res) {
-    res.sendFile(__dirname + '/style.css')
-});
-
-app.get('/browse',function(req,res){
-  console.log("browse page");
-  res.sendFile(__dirname + "/browse.html");
-});
-
-app.get('/create',function(req,res){
-  console.log("create page");
-  res.sendFile(__dirname + "/create.html");
-});
-
-app.get('/threejs_demo/',function(req,res){
-  console.log("three js demo page");
-  res.sendFile(__dirname + "/threejs_demo/index.html");
-});
-
-/*threejs gets
-const threejs = '/threejs_demo/three/examples/js/three.js';
-const loadersupportjs= '/threejs_demo/three/examples/js/loaders/loadersupport.js';
-const objloader2js = '/threejs_demo/three/examples/js/loaders/OBJLoader2.js';
-const objloaderjs = '/threejs_demo/three/examples/js/loaders/OBJLoader.js';
-const orbitcontrolsjs = '/threejs_demo/three/examples/js/controls/OrbitControls.js';
-const webvrjs = '/threejs_demo/three/examples/js/vr/WebVR.js';
-//'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'
-app.get(threejs, function(req,res){res.sendFile(threejs); });
-app.get(loadersupportjs, function(req,res){res.sendFile(loadersupportjs); });
-app.get(objloader2js, function(req,res){res.sendFile(objloader2js); });
-app.get(objloaderjs, function(req,res){res.sendFile(objloaderjs); });
-app.get(orbitcontrolsjs, function(req,res){res.sendFile(orbitcontrolsjs); });
-app.get(webvrjs, function(req,res){res.sendFile(webvrjs); });
-*/
 
 //==POSTS==
 
 app.post('/', function(req, res){
-    console.log('POST /');
-    console.dir(req.body);
-    res.writeHead(200, {'Content-Type': 'text/html'});
+    console.log('POST /: send movie data to redis');
+    //console.log(JSON.parse( req.body) );
+    var mdata = req.body;
+    console.log(mdata);
+    console.log(mdata.movie_id);
+    console.log(JSON.stringify(mdata.saved_inputs_array));
+    client.lset('movie id list', mdata.movie_id, JSON.stringify( mdata.saved_inputs_array) );
     res.end('thanks');
 });
 
 app.post('/create', function(req, res){
-  console.log("this function will generate an html file for a new movie from the base template");
+  console.log("generate a new movie ID and write it to the Redis database");
   console.log(req.body);
-  //fs.writeFile("/threejs_demo/test");
-  }
-);
 
-app.post(movieserver, function(req, res){
-  console.log(req);
-  }
-);
+  //client.set('string key', 'string val', redis.print)
+  client.rpush('movie id list', 'new', redis.print);
+});
 
 //*******Listen on port 3000********
 

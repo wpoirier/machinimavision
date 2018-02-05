@@ -9,7 +9,7 @@
 	<h1>MachinimaVision</h1>
 	<h2>Browse Videos</h2>
 	<p>This page will contain movies people have made.</p>
-	<p><a href="/movie">click here to access the prototype demo</a></p>
+	<p><a href="/movie">click here to access the prototype demo without a query ID</a></p>
 	<p><a href="/create">Click here to access the movie creation page</a></p>
 	<div id="movie_container">Movies will appear as hyperlinks here for the time being</div>
 </body>
@@ -23,7 +23,7 @@
 	$(document).ready(function() {
 		$.get( nodeserver_browse, function( movie_list_size ) {
   			$( ".result" ).html( movie_list_size );
-  			alert( "Movie List Size: " + movie_list_size );
+  			alert( "There are currently " + movie_list_size + " movies in the database");
   			var html_container;
   			for (var i = 0; i < movie_list_size; i++){
   				str = '<a href=\"movie?mid=' + i.toString() + '\">Movie #'+i.toString()+'</a><br>'
