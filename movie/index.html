@@ -1,0 +1,77 @@
+  <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>MachinimaVision ThreeJS Rough Prototype</title>
+		<style>
+			body { 
+				margin: 0; 
+			}
+			canvas { 
+				width: 100%; 
+				height: 100% 
+			}
+			#info {
+				position: fixed;
+				left: -250px;
+				top: 5px;
+				width: 100%;
+				text-align: center;
+				z-index: 100;
+				display:block;
+				color: #00A0FF;
+				text-shadow: 1px 1px #0000ff;
+				font-family: helvetica;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="/config.js"></script>
+		<script src="./three/examples/js/three.js"></script>
+		<script src="./three/examples/js/loaders/loadersupport.js"></script>
+		<script src="./three/examples/js/loaders/OBJLoader2.js"></script>
+		<script src="./three/examples/js/loaders/OBJLoader.js"></script>
+		<script src="./three/examples/js/controls/OrbitControls.js"></script>
+		<script src="./three/examples/js/vr/WebVR.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="core.js"></script>
+		<div id="info">
+			<h3>Move with WASD</h3> 
+			<button id="record-button"><div id="record-button-text">Record</div></button>
+			<button id="playback-button">Play</button>
+			<div id="mode">Mode: Staging</div>
+			<br>
+			<div id="scene">Scene: 0</div>
+			<button id="minus-button">-</button>
+			<button id="plus-button">+</button>
+		</div>
+		<script>
+			//***button scripts***
+			var recordButton = document.getElementById('record-button');
+			recordButton.addEventListener('click', function(){
+				setStagingRecordMode()
+				console.log("record button pressed");
+			});
+
+			var playButton = document.getElementById('playback-button');
+			playButton.addEventListener('click',function(){
+				setPlaybackMode();
+				console.log("play button pressed");
+			});
+
+			var minusButton = document.getElementById('minus-button');
+			minusButton.addEventListener('click', function(){
+				if(scene_index > 0) scene_index--;
+				document.getElementById('scene').innerHTML = "Scene: " + scene_index;
+				console.log("scene decreased pressed");
+			});
+
+			var plusButton = document.getElementById('plus-button');
+			plusButton.addEventListener('click',function(){
+				scene_index++;
+				document.getElementById('scene').innerHTML = "Scene: " + scene_index;
+				console.log("scene increased");
+			});
+		</script>
+	</body>
+</html>

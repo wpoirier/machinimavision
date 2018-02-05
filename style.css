@@ -1,0 +1,30 @@
+h1{
+	text-align: center;
+	font-family: helvetica;
+	color:#fff;
+}
+
+h2{
+	text-align: center;
+	font-family: helvetica;
+	color:#fff;
+}
+
+p{
+	text-align: center;
+	font-family: helvetica;
+	color:#fff;
+}
+
+input {
+	display: block;
+	margin: 0 auto;
+}
+
+body{
+	background-color:#810;
+}
+
+#movie_container{
+	text-align: center;
+}

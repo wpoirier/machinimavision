@@ -1,3 +1,5 @@
+This project uses ThreeJS, which is licensed under the MIT license.
+
 To run this project properly, an http server must be run. I currently use ruby webrick as documented on the ThreeJS website. Run the following from the terminal to start a web server at localhost:8000
 
 ruby -r webrick -e "s = WEBrick::HTTPServer.new(:Port => 8000, :DocumentRoot => Dir.pwd); trap('INT') { s.shutdown }; s.start"

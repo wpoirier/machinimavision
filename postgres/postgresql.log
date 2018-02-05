@@ -29,3 +29,307 @@
 2017-11-08 11:00:49.363 EST [1259] LOG:  worker process: logical replication launcher (PID 1266) exited with exit code 1
 2017-11-08 11:00:49.363 EST [1261] LOG:  shutting down
 2017-11-08 11:00:49.368 EST [1259] LOG:  database system is shut down
+2017-12-10 16:01:19.976 EST [3323] LOG:  listening on IPv6 address "::1", port 5432
+2017-12-10 16:01:19.977 EST [3323] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-12-10 16:01:19.978 EST [3323] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-12-10 16:01:19.988 EST [3324] LOG:  database system was shut down at 2017-11-08 11:00:49 EST
+2017-12-10 16:01:19.993 EST [3323] LOG:  database system is ready to accept connections
+2017-12-10 21:13:38.262 EST [3323] LOG:  received smart shutdown request
+2017-12-10 21:13:38.264 EST [3323] LOG:  worker process: logical replication launcher (PID 3330) exited with exit code 1
+2017-12-10 21:13:38.264 EST [3325] LOG:  shutting down
+2017-12-10 21:13:38.269 EST [3323] LOG:  database system is shut down
+2017-12-12 17:44:28.281 EST [8607] LOG:  listening on IPv6 address "::1", port 5432
+2017-12-12 17:44:28.283 EST [8607] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-12-12 17:44:28.284 EST [8607] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-12-12 17:44:28.302 EST [8608] LOG:  database system was shut down at 2017-12-10 21:13:38 EST
+2017-12-12 17:44:28.308 EST [8607] LOG:  database system is ready to accept connections
+2017-12-12 20:42:00.662 EST [8607] LOG:  received smart shutdown request
+2017-12-12 20:42:00.664 EST [8607] LOG:  worker process: logical replication launcher (PID 8614) exited with exit code 1
+2017-12-12 20:42:00.664 EST [8609] LOG:  shutting down
+2017-12-12 20:42:00.671 EST [8607] LOG:  database system is shut down
+2017-12-13 08:48:00.735 EST [866] LOG:  listening on IPv6 address "::1", port 5432
+2017-12-13 08:48:00.736 EST [866] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-12-13 08:48:00.737 EST [866] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-12-13 08:48:00.747 EST [867] LOG:  database system was shut down at 2017-12-12 20:42:00 EST
+2017-12-13 08:48:00.752 EST [866] LOG:  database system is ready to accept connections
+2017-12-13 08:56:10.183 EST [866] LOG:  received smart shutdown request
+2017-12-13 08:56:10.184 EST [866] LOG:  worker process: logical replication launcher (PID 873) exited with exit code 1
+2017-12-13 08:56:10.185 EST [868] LOG:  shutting down
+2017-12-13 08:56:10.189 EST [866] LOG:  database system is shut down
+2017-12-14 11:21:14.771 EST [619] LOG:  listening on IPv6 address "::1", port 5432
+2017-12-14 11:21:14.772 EST [619] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-12-14 11:21:14.773 EST [619] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-12-14 11:21:14.784 EST [620] LOG:  database system was shut down at 2017-12-13 08:56:10 EST
+2017-12-14 11:21:14.789 EST [619] LOG:  database system is ready to accept connections
+2017-12-14 11:25:01.480 EST [914] FATAL:  role "william" does not exist
+2017-12-14 11:25:01.481 EST [915] FATAL:  role "william" does not exist
+2017-12-14 11:25:31.807 EST [924] ERROR:  role "william" already exists
+2017-12-14 11:25:31.807 EST [924] STATEMENT:  CREATE ROLE william NOSUPERUSER CREATEDB NOCREATEROLE INHERIT LOGIN;
+2017-12-14 11:28:45.769 EST [946] FATAL:  database "machinimaTestDB" does not exist
+2017-12-14 11:32:08.981 EST [948] ERROR:  syntax error at or near "CREATE" at character 8
+2017-12-14 11:32:08.981 EST [948] STATEMENT:  CREATE
+	CREATE ROLE william WITH LOGIN PASSWORD 'mastersystem'
+	ALTER ROLE william WITH SUPERUSER
+	ALTER ROLE william WITH SUPERUSER;
+2017-12-14 11:33:13.990 EST [948] ERROR:  syntax error at or near "ALTER" at character 35
+2017-12-14 11:33:13.990 EST [948] STATEMENT:  ALTER ROLE william WITH SUPERUSER
+	ALTER ROLE william WITH SUPERUSER;
+2017-12-14 13:13:04.402 EST [619] LOG:  received smart shutdown request
+2017-12-14 13:13:04.404 EST [619] LOG:  worker process: logical replication launcher (PID 626) exited with exit code 1
+2017-12-14 13:13:04.404 EST [621] LOG:  shutting down
+2017-12-14 13:13:04.408 EST [619] LOG:  database system is shut down
+2017-12-14 14:12:54.580 EST [498] LOG:  listening on IPv6 address "::1", port 5432
+2017-12-14 14:12:54.581 EST [498] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-12-14 14:12:54.582 EST [498] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-12-14 14:12:54.661 EST [499] LOG:  database system was shut down at 2017-12-14 13:13:04 EST
+2017-12-14 14:12:54.671 EST [498] LOG:  database system is ready to accept connections
+2017-12-14 23:51:44.237 EST [498] LOG:  received smart shutdown request
+2017-12-14 23:51:44.237 EST [498] LOG:  worker process: logical replication launcher (PID 505) exited with exit code 1
+2017-12-14 23:51:44.238 EST [500] LOG:  shutting down
+2017-12-14 23:51:44.267 EST [498] LOG:  database system is shut down
+2017-12-15 13:49:34.526 EST [471] LOG:  listening on IPv6 address "::1", port 5432
+2017-12-15 13:49:34.528 EST [471] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-12-15 13:49:34.528 EST [471] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-12-15 13:49:34.622 EST [473] LOG:  database system was shut down at 2017-12-14 23:51:44 EST
+2017-12-15 13:49:34.711 EST [471] LOG:  database system is ready to accept connections
+2017-12-15 17:32:26.379 EST [471] LOG:  received smart shutdown request
+2017-12-15 17:32:26.382 EST [471] LOG:  worker process: logical replication launcher (PID 483) exited with exit code 1
+2017-12-15 17:32:26.382 EST [478] LOG:  shutting down
+2017-12-15 17:32:26.415 EST [471] LOG:  database system is shut down
+2017-12-16 14:08:58.744 EST [485] LOG:  listening on IPv6 address "::1", port 5432
+2017-12-16 14:08:58.756 EST [485] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-12-16 14:08:58.774 EST [485] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-12-16 14:08:58.830 EST [488] LOG:  database system was shut down at 2017-12-15 17:32:26 EST
+2017-12-16 14:08:58.852 EST [485] LOG:  database system is ready to accept connections
+2017-12-16 15:44:26.309 EST [485] LOG:  received smart shutdown request
+2017-12-16 15:44:26.311 EST [485] LOG:  worker process: logical replication launcher (PID 494) exited with exit code 1
+2017-12-16 15:44:26.311 EST [489] LOG:  shutting down
+2017-12-16 15:44:26.315 EST [485] LOG:  database system is shut down
+2017-12-18 15:32:17.139 EST [489] LOG:  listening on IPv6 address "::1", port 5432
+2017-12-18 15:32:17.140 EST [489] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-12-18 15:32:17.140 EST [489] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-12-18 15:32:17.191 EST [490] LOG:  database system was shut down at 2017-12-16 15:44:26 EST
+2017-12-18 15:32:17.231 EST [489] LOG:  database system is ready to accept connections
+2017-12-18 17:44:08.712 EST [489] LOG:  received smart shutdown request
+2017-12-18 17:44:08.715 EST [489] LOG:  worker process: logical replication launcher (PID 496) exited with exit code 1
+2017-12-18 17:44:08.715 EST [491] LOG:  shutting down
+2017-12-18 17:44:08.744 EST [489] LOG:  database system is shut down
+2017-12-19 15:59:05.546 EST [480] LOG:  listening on IPv6 address "::1", port 5432
+2017-12-19 15:59:05.547 EST [480] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-12-19 15:59:05.548 EST [480] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-12-19 15:59:05.602 EST [481] LOG:  database system was shut down at 2017-12-18 17:44:08 EST
+2017-12-19 15:59:05.659 EST [480] LOG:  database system is ready to accept connections
+2017-12-19 22:20:38.945 EST [480] LOG:  received smart shutdown request
+2017-12-19 22:20:38.948 EST [480] LOG:  worker process: logical replication launcher (PID 488) exited with exit code 1
+2017-12-19 22:20:38.948 EST [483] LOG:  shutting down
+2017-12-19 22:20:38.980 EST [480] LOG:  database system is shut down
+2017-12-20 09:35:27.682 EST [495] LOG:  listening on IPv6 address "::1", port 5432
+2017-12-20 09:35:27.683 EST [495] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-12-20 09:35:27.683 EST [495] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-12-20 09:35:27.779 EST [496] LOG:  database system was shut down at 2017-12-19 22:20:38 EST
+2017-12-20 09:35:27.788 EST [495] LOG:  database system is ready to accept connections
+2017-12-20 11:30:02.159 EST [495] LOG:  received smart shutdown request
+2017-12-20 11:30:02.161 EST [495] LOG:  worker process: logical replication launcher (PID 502) exited with exit code 1
+2017-12-20 11:30:02.161 EST [497] LOG:  shutting down
+2017-12-20 11:30:02.165 EST [495] LOG:  database system is shut down
+2017-12-20 14:09:02.583 EST [473] LOG:  listening on IPv6 address "::1", port 5432
+2017-12-20 14:09:02.598 EST [473] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-12-20 14:09:02.603 EST [473] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-12-20 14:09:02.667 EST [475] LOG:  database system was shut down at 2017-12-20 11:30:02 EST
+2017-12-20 14:09:02.734 EST [473] LOG:  database system is ready to accept connections
+2017-12-20 19:00:11.357 EST [473] LOG:  received smart shutdown request
+2017-12-20 19:00:11.359 EST [473] LOG:  worker process: logical replication launcher (PID 481) exited with exit code 1
+2017-12-20 19:00:11.359 EST [476] LOG:  shutting down
+2017-12-20 19:00:11.363 EST [473] LOG:  database system is shut down
+2017-12-23 11:43:57.343 EST [1204] LOG:  listening on IPv6 address "::1", port 5432
+2017-12-23 11:43:57.345 EST [1204] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-12-23 11:43:57.346 EST [1204] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-12-23 11:43:57.367 EST [1207] LOG:  database system was shut down at 2017-12-20 19:00:11 EST
+2017-12-23 11:43:57.385 EST [1204] LOG:  database system is ready to accept connections
+2017-12-23 11:44:09.579 EST [1204] LOG:  received smart shutdown request
+2017-12-23 11:44:09.581 EST [1204] LOG:  worker process: logical replication launcher (PID 1214) exited with exit code 1
+2017-12-23 11:44:09.581 EST [1208] LOG:  shutting down
+2017-12-23 11:44:09.611 EST [1204] LOG:  database system is shut down
+2017-12-25 11:38:33.601 EST [486] LOG:  listening on IPv6 address "::1", port 5432
+2017-12-25 11:38:33.625 EST [486] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-12-25 11:38:33.647 EST [486] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-12-25 11:38:33.700 EST [490] LOG:  database system was shut down at 2017-12-23 11:44:09 EST
+2017-12-25 11:38:33.752 EST [486] LOG:  database system is ready to accept connections
+2017-12-25 11:39:25.214 EST [486] LOG:  received smart shutdown request
+2017-12-25 11:39:25.216 EST [486] LOG:  worker process: logical replication launcher (PID 501) exited with exit code 1
+2017-12-25 11:39:25.216 EST [496] LOG:  shutting down
+2017-12-25 11:39:25.221 EST [486] LOG:  database system is shut down
+2017-12-28 13:49:59.402 EST [495] LOG:  listening on IPv6 address "::1", port 5432
+2017-12-28 13:49:59.410 EST [495] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-12-28 13:49:59.452 EST [495] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-12-28 13:49:59.558 EST [500] LOG:  database system was shut down at 2017-12-25 11:39:25 EST
+2017-12-28 13:49:59.615 EST [495] LOG:  database system is ready to accept connections
+2018-01-03 18:57:26.852 EST [495] LOG:  received smart shutdown request
+2018-01-03 18:57:26.855 EST [495] LOG:  worker process: logical replication launcher (PID 509) exited with exit code 1
+2018-01-03 18:57:26.855 EST [502] LOG:  shutting down
+2018-01-03 18:57:26.894 EST [495] LOG:  database system is shut down
+2018-01-03 20:30:31.379 EST [489] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-03 20:30:31.411 EST [489] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-03 20:30:31.468 EST [489] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-01-03 20:30:31.597 EST [495] LOG:  database system was shut down at 2018-01-03 18:57:26 EST
+2018-01-03 20:30:31.626 EST [489] LOG:  database system is ready to accept connections
+2018-01-04 00:39:04.286 EST [489] LOG:  received smart shutdown request
+2018-01-04 00:39:04.288 EST [489] LOG:  worker process: logical replication launcher (PID 501) exited with exit code 1
+2018-01-04 00:39:04.288 EST [496] LOG:  shutting down
+2018-01-04 00:39:04.292 EST [489] LOG:  database system is shut down
+2018-01-04 09:33:35.912 EST [493] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-04 09:33:35.939 EST [493] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-04 09:33:35.999 EST [493] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-01-04 09:33:36.025 EST [496] LOG:  database system was shut down at 2018-01-04 00:39:04 EST
+2018-01-04 09:33:36.040 EST [493] LOG:  database system is ready to accept connections
+2018-01-07 23:17:18.453 EST [493] LOG:  received smart shutdown request
+2018-01-07 23:17:18.455 EST [493] LOG:  worker process: logical replication launcher (PID 502) exited with exit code 1
+2018-01-07 23:17:18.455 EST [497] LOG:  shutting down
+2018-01-07 23:17:18.492 EST [493] LOG:  database system is shut down
+2018-01-08 12:49:24.773 EST [497] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-08 12:49:24.790 EST [497] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-08 12:49:24.840 EST [497] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-01-08 12:49:25.064 EST [499] LOG:  database system was shut down at 2018-01-07 23:17:18 EST
+2018-01-08 12:49:25.215 EST [497] LOG:  database system is ready to accept connections
+2018-01-09 00:16:07.961 EST [497] LOG:  received smart shutdown request
+2018-01-09 00:16:07.963 EST [497] LOG:  worker process: logical replication launcher (PID 505) exited with exit code 1
+2018-01-09 00:16:07.963 EST [500] LOG:  shutting down
+2018-01-09 00:16:07.994 EST [497] LOG:  database system is shut down
+2018-01-09 09:25:10.056 EST [501] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-09 09:25:10.067 EST [501] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-09 09:25:10.102 EST [501] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-01-09 09:25:10.182 EST [505] LOG:  database system was shut down at 2018-01-09 00:16:07 EST
+2018-01-09 09:25:10.235 EST [501] LOG:  database system is ready to accept connections
+2018-01-09 14:24:05.031 EST [501] LOG:  received smart shutdown request
+2018-01-09 14:24:05.033 EST [501] LOG:  worker process: logical replication launcher (PID 512) exited with exit code 1
+2018-01-09 14:24:05.033 EST [507] LOG:  shutting down
+2018-01-09 14:24:05.037 EST [501] LOG:  database system is shut down
+2018-01-09 16:42:46.557 EST [506] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-09 16:42:46.579 EST [506] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-09 16:42:46.610 EST [506] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-01-09 16:42:46.627 EST [508] LOG:  database system was shut down at 2018-01-09 14:24:05 EST
+2018-01-09 16:42:46.641 EST [506] LOG:  database system is ready to accept connections
+2018-01-11 18:35:26.565 EST [506] LOG:  received smart shutdown request
+2018-01-11 18:35:26.568 EST [506] LOG:  worker process: logical replication launcher (PID 514) exited with exit code 1
+2018-01-11 18:35:26.568 EST [509] LOG:  shutting down
+2018-01-11 18:35:26.605 EST [506] LOG:  database system is shut down
+2018-01-11 18:36:56.052 EST [556] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-11 18:36:56.059 EST [556] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-11 18:36:56.076 EST [556] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-01-11 18:36:56.143 EST [560] LOG:  database system was shut down at 2018-01-11 18:35:26 EST
+2018-01-11 18:36:56.153 EST [556] LOG:  database system is ready to accept connections
+2018-01-12 00:03:04.260 EST [556] LOG:  received smart shutdown request
+2018-01-12 00:03:04.262 EST [556] LOG:  worker process: logical replication launcher (PID 566) exited with exit code 1
+2018-01-12 00:03:04.262 EST [561] LOG:  shutting down
+2018-01-12 00:03:04.292 EST [556] LOG:  database system is shut down
+2018-01-12 10:06:20.875 EST [522] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-12 10:06:20.877 EST [522] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-12 10:06:20.877 EST [522] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-01-12 10:06:20.936 EST [523] LOG:  database system was shut down at 2018-01-12 00:03:04 EST
+2018-01-12 10:06:20.972 EST [522] LOG:  database system is ready to accept connections
+2018-01-17 21:47:01.315 EST [522] LOG:  received smart shutdown request
+2018-01-17 21:47:01.318 EST [522] LOG:  worker process: logical replication launcher (PID 529) exited with exit code 1
+2018-01-17 21:47:01.319 EST [524] LOG:  shutting down
+2018-01-17 21:47:01.353 EST [522] LOG:  database system is shut down
+2018-01-18 09:31:57.349 EST [484] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-18 09:31:57.350 EST [484] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-18 09:31:57.351 EST [484] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-01-18 09:31:57.368 EST [486] LOG:  database system was shut down at 2018-01-17 21:47:01 EST
+2018-01-18 09:31:57.377 EST [484] LOG:  database system is ready to accept connections
+2018-01-19 16:48:41.750 EST [484] LOG:  received smart shutdown request
+2018-01-19 16:48:41.753 EST [484] LOG:  worker process: logical replication launcher (PID 493) exited with exit code 1
+2018-01-19 16:48:41.753 EST [488] LOG:  shutting down
+2018-01-19 16:48:41.786 EST [484] LOG:  database system is shut down
+2018-01-19 16:51:57.160 EST [481] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-19 16:51:57.166 EST [481] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-19 16:51:57.184 EST [481] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-01-19 16:51:57.246 EST [483] LOG:  database system was shut down at 2018-01-19 16:48:41 EST
+2018-01-19 16:51:57.277 EST [481] LOG:  database system is ready to accept connections
+2018-01-19 19:43:46.829 EST [481] LOG:  received smart shutdown request
+2018-01-19 19:43:46.831 EST [481] LOG:  worker process: logical replication launcher (PID 489) exited with exit code 1
+2018-01-19 19:43:46.832 EST [484] LOG:  shutting down
+2018-01-19 19:43:46.862 EST [481] LOG:  database system is shut down
+2018-01-20 20:27:48.496 EST [530] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-20 20:27:48.537 EST [530] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-20 20:27:48.650 EST [530] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-01-20 20:27:48.781 EST [535] LOG:  database system was shut down at 2018-01-19 19:43:46 EST
+2018-01-20 20:27:48.798 EST [530] LOG:  database system is ready to accept connections
+2017-01-01 07:29:28.164 EST [563] LOG:  listening on IPv6 address "::1", port 5432
+2017-01-01 07:29:28.164 EST [563] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-01-01 07:29:28.181 EST [563] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-01-01 07:29:28.229 EST [566] LOG:  database system was interrupted; last known up at 2018-01-20 20:32:48 EST
+2017-01-01 07:29:28.250 EST [566] LOG:  database system was not properly shut down; automatic recovery in progress
+2017-01-01 07:29:28.251 EST [566] LOG:  redo starts at 0/165D2C8
+2017-01-01 07:29:28.251 EST [566] LOG:  invalid record length at 0/165D3A8: wanted 24, got 0
+2017-01-01 07:29:28.251 EST [566] LOG:  redo done at 0/165D370
+2017-01-01 07:29:28.257 EST [563] LOG:  database system is ready to accept connections
+2018-01-24 23:31:23.831 EST [563] LOG:  received smart shutdown request
+2018-01-24 23:31:23.833 EST [563] LOG:  worker process: logical replication launcher (PID 572) exited with exit code 1
+2018-01-24 23:31:23.834 EST [567] LOG:  shutting down
+2018-01-24 23:31:23.861 EST [563] LOG:  database system is shut down
+2018-01-25 09:27:00.124 EST [530] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-25 09:27:00.125 EST [530] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-25 09:27:00.126 EST [530] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-01-25 09:27:00.141 EST [531] LOG:  database system was shut down at 2018-01-24 23:31:23 EST
+2018-01-25 09:27:00.147 EST [530] LOG:  database system is ready to accept connections
+2018-01-27 20:01:10.042 EST [530] LOG:  received smart shutdown request
+2018-01-27 20:01:10.045 EST [530] LOG:  worker process: logical replication launcher (PID 537) exited with exit code 1
+2018-01-27 20:01:10.045 EST [532] LOG:  shutting down
+2018-01-27 20:01:10.077 EST [530] LOG:  database system is shut down
+2018-01-27 22:45:52.497 EST [583] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-27 22:45:52.547 EST [583] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-27 22:45:52.595 EST [583] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-01-27 22:45:52.612 EST [589] LOG:  database system was shut down at 2018-01-27 20:01:10 EST
+2018-01-27 22:45:52.622 EST [583] LOG:  database system is ready to accept connections
+2018-01-28 01:37:24.427 EST [583] LOG:  received smart shutdown request
+2018-01-28 01:37:24.433 EST [583] LOG:  worker process: logical replication launcher (PID 595) exited with exit code 1
+2018-01-28 01:37:24.433 EST [590] LOG:  shutting down
+2018-01-28 01:37:24.439 EST [583] LOG:  database system is shut down
+2018-01-29 11:40:15.498 EST [505] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-29 11:40:15.518 EST [505] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-29 11:40:15.562 EST [505] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-01-29 11:40:15.725 EST [506] LOG:  database system was shut down at 2018-01-28 01:37:24 EST
+2018-01-29 11:40:15.801 EST [505] LOG:  database system is ready to accept connections
+2018-01-29 22:11:47.216 EST [505] LOG:  received smart shutdown request
+2018-01-29 22:11:47.218 EST [505] LOG:  worker process: logical replication launcher (PID 513) exited with exit code 1
+2018-01-29 22:11:47.219 EST [508] LOG:  shutting down
+2018-01-29 22:11:47.244 EST [505] LOG:  database system is shut down
+2018-01-30 09:25:27.353 EST [487] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-30 09:25:27.354 EST [487] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-30 09:25:27.375 EST [487] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-01-30 09:25:27.454 EST [494] LOG:  database system was shut down at 2018-01-29 22:11:47 EST
+2018-01-30 09:25:27.484 EST [487] LOG:  database system is ready to accept connections
+2018-01-30 20:50:54.832 EST [2890] FATAL:  database "machinimaTestDB" does not exist
+2018-01-30 21:14:27.269 EST [2953] FATAL:  database "machinimaTestDB" does not exist
+2018-01-30 22:08:42.194 EST [487] LOG:  received smart shutdown request
+2018-01-30 22:08:42.196 EST [487] LOG:  worker process: logical replication launcher (PID 500) exited with exit code 1
+2018-01-30 22:08:42.197 EST [495] LOG:  shutting down
+2018-01-30 22:08:42.228 EST [487] LOG:  database system is shut down
+2018-01-31 09:28:19.260 EST [475] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-31 09:28:19.267 EST [475] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-31 09:28:19.284 EST [475] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-01-31 09:28:19.376 EST [479] LOG:  database system was shut down at 2018-01-30 22:08:42 EST
+2018-01-31 09:28:19.386 EST [475] LOG:  database system is ready to accept connections
+2018-01-31 22:34:08.972 EST [475] LOG:  received smart shutdown request
+2018-01-31 22:34:08.974 EST [475] LOG:  worker process: logical replication launcher (PID 486) exited with exit code 1
+2018-01-31 22:34:08.974 EST [480] LOG:  shutting down
+2018-01-31 22:34:08.978 EST [475] LOG:  database system is shut down
+2018-02-01 09:45:39.684 EST [500] LOG:  listening on IPv6 address "::1", port 5432
+2018-02-01 09:45:39.714 EST [500] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-02-01 09:45:39.764 EST [500] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-02-01 09:45:39.935 EST [503] LOG:  database system was shut down at 2018-01-31 22:34:08 EST
+2018-02-01 09:45:40.044 EST [500] LOG:  database system is ready to accept connections
+2018-02-03 22:36:18.221 EST [500] LOG:  received smart shutdown request
+2018-02-03 22:36:18.225 EST [500] LOG:  worker process: logical replication launcher (PID 509) exited with exit code 1
+2018-02-03 22:36:18.225 EST [504] LOG:  shutting down
+2018-02-03 22:36:18.260 EST [500] LOG:  database system is shut down
+2018-02-04 10:41:08.454 EST [485] LOG:  listening on IPv6 address "::1", port 5432
+2018-02-04 10:41:08.471 EST [485] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-02-04 10:41:08.524 EST [485] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-02-04 10:41:08.672 EST [493] LOG:  database system was shut down at 2018-02-03 22:36:18 EST
+2018-02-04 10:41:08.764 EST [485] LOG:  database system is ready to accept connections
+2018-02-04 14:21:38.421 EST [485] LOG:  received fast shutdown request
+2018-02-04 14:21:38.428 EST [485] LOG:  aborting any active transactions
+2018-02-04 14:21:38.429 EST [485] LOG:  worker process: logical replication launcher (PID 503) exited with exit code 1
+2018-02-04 14:21:38.429 EST [498] LOG:  shutting down
+2018-02-04 14:21:38.535 EST [485] LOG:  database system is shut down

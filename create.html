@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Create a New MachinimaVision</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="config.js"></script>
+
+<body id="create_page">
+	<h1>MachinimaVision</h1>
+	<h2>Create a new Movie!</h2>
+	<p>Page in development. Will later contain parameters like title, description, tags, etc.
+		<br><br>
+		<button id="create-button" onclick="createMovie()">Create!</button>
+	</p>
+	<script>
+	function createMovie(){
+		console.log("createMovie()");
+		$.ajax({
+  			type: "POST",
+  			url: nodeserver_create,
+			data: "new movie",
+			success: postSuccess(),
+			dataType: 'text'
+		});
+		//get the results of the next movie id from server
+		//redirect to the movie page with the movie id
+	}
+
+	function postSuccess(){
+		alert("movie created");
+		window.location.replace('/browse');
+	}
+	
+	</script>
+</body>

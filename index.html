@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Welcome to MachinimaVision</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+      $(document).ready(function(){
+        var user,pass;
+        console.log("ready");
+        $("#submit").click(function(){
+          user=$("#user").val();
+          pass=$("#password").val();
+          $.post("http://localhost:3000/login",{user: user,password: pass}, function(data){
+            if(data==='done')
+              {
+                alert("login success");
+              }
+          });
+        });
+      });
+	</script>
+
+	<body id="loginpage">
+		<h1>MachinimaVision</h1>
+		<h2>This will be our login and registration page</h2>
+		<p>Since it hasn't been implemented yet, <a href="/browse">click here to continue</a></p>
+
+    	<input type="TEXT" id="user" size="40"><br>
+    	<input type="password" id="password" size="40"><br>
+    	<input type="button" id="submit" value="Submit">
+	</body>
+</html>

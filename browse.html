@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Welcome to MachinimaVision</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body id="browse_page">
+	<h1>MachinimaVision</h1>
+	<h2>Browse Videos</h2>
+	<p>This page will contain movies people have made.</p>
+	<p><a href="/movie">click here to access the prototype demo</a></p>
+	<p><a href="/create">Click here to access the movie creation page</a></p>
+	<div id="movie_container">Movies will appear as hyperlinks here for the time being</div>
+</body>
+
+<script src="/config.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	/* This script will populate the movie container div with all movies currently created so far. Obviously for the production enviornment we'll only want the newest releases , but this will be fine for the time being */
+	var container = "";
+	var str = "";
+	$(document).ready(function() {
+		$.get( nodeserver_browse, function( movie_list_size ) {
+  			$( ".result" ).html( movie_list_size );
+  			alert( "Movie List Size: " + movie_list_size );
+  			var html_container;
+  			for (var i = 0; i < movie_list_size; i++){
+  				str = '<a href=\"movie?mid=' + i.toString() + '\">Movie #'+i.toString()+'</a><br>'
+  				container = container.concat( str );
+  			}
+			document.getElementById('movie_container').innerHTML = container;
+		});
+	});
+</script>
