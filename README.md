@@ -1,6 +1,4 @@
-This project uses ThreeJS and ExpressJS, which are licensed under the MIT license. This project also uses a Redis database, which is licensed under the BSD license.
-
-MachinimaVision is a collaborative cloud project designed for multiple users to create virtual reality compatible movies together.
+MachinimaVision is a web application designed for multiple users to create virtual reality compatible movies or stage plays. It uses a game-like interface to control characters. Inputs are recorded, and then played back in the "game" engine. Future versions of this software will include user accounts and the ability for multiple users to share the same stage together, co-creating whatever narrative they wish, and optionally allowing spectators and live plays.
 
 To run this project properly, a web server, node server, and Redis server all must be running. If you have not installed Redis or NodeJS, navigate to https://redis.io and https://nodejs.org/ and follow the installation instructions. Make sure you run 'npm install' in the machinimavision folder to install all the required components. If you run into problems, try installing redis, body parser, and express JS manually.
 
@@ -9,3 +7,5 @@ To run Redis, cd in your terminal to where you built your binary and run './redi
 Navigate to http://localhost:8000. The user and password system is not yet complete, so skip to the next page. Create a new movie using the 'Create Movie' page, and then navigate to that movie on the Browse page. It will have a unique id in the url query. For the current prototype, WASD will control the character. Follow the on-screen buttons to control the recording. Or for hotkeys, press space to begin recording inputs, and then press space again to finish. Press 'P' to initiate playback, and space again to replay the cube's movement. When you stop recording, your inputs will be saved and sent to the back-end server as a JSON encoded string. The movie can then be played back.
 
 In the near future, the backend component will also allow users to upload their own 3D models, animations, and terrain. Future revisions will also include the ability to manipulate record camera and lighting changes. Most importantly of all, it will allow multiple users to control and edit a movie simutaneously and allow the recording of voice chat.
+
+This project uses ThreeJS and ExpressJS, which are licensed under the MIT license. This project also uses a Redis database, which is licensed under the BSD license. 
